@@ -10,7 +10,7 @@ module.exports = {
 
     entry: {//处理入口
         vendor: [],
-        index:["./index/index.js"],
+        index:["./nm/index.js","./nm/resource/index.less"],
     },
 
     output: {
@@ -47,7 +47,7 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
 
         new webpack.ProvidePlugin({
-            
+
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
@@ -60,22 +60,22 @@ module.exports = {
     ],
 
 //替换需要请求的数据接口
-    devServer: { 
-        proxy: { 
-                "/api/*": { 
-                "target": { 
-                "host": "music.163.com", 
-                "protocol": 'http:', 
-                "port": 80 
-                }, 
-            ignorePath: false, 
-            changeOrigin: true, 
-            secure: false, 
-                 // headers: { 
-                 // "Referer": "http://music.163.com" 
-                 // } 
-                } 
-            } 
+    devServer: {
+        proxy: {
+                "/api/*": {
+                "target": {
+                "host": "music.163.com",
+                "protocol": 'http:',
+                "port": 80
+                },
+            ignorePath: false,
+            changeOrigin: true,
+            secure: false,
+                 // headers: {
+                 // "Referer": "http://music.163.com"
+                 // }
+                }
+            }
         }
 
 };
