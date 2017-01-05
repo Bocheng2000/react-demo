@@ -8,7 +8,7 @@ class App extends Component {
 
   render() {
     return(
-    	<div className="nm-app">netease music</div>
+    	<div className="nm-app">netease music ccb</div>
     	);
   }
 
