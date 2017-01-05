@@ -9,7 +9,7 @@ module.exports = {
     context: path.resolve("./src"),
 
     entry: {//处理入口
-        vendor: [],
+        vendor: ["babel-polyfill","jquery"],
         index:["./nm/index.js","./nm/resource/index.less"],
     },
 
@@ -47,7 +47,7 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
 
         new webpack.ProvidePlugin({
-
+          $: 'jquery'
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
