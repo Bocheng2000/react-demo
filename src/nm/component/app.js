@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import ServiceClient from '../../base/service/ServiceClient';
 import PlayList from './PlayList';
+import TrackTable from './TrackTable';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-
+    this.handlePlayListClick = this.handlePlayListClick.bind(this);
   }
   static defaultProps = {
 
@@ -16,7 +17,8 @@ export default class App extends Component {
       }
 
   state={
-    playlists: []
+    playlists: [],
+    selectedPlayList:null
 }
 
 
@@ -28,9 +30,17 @@ async componentDidMount(){
     console.log(result);
   }
 
-//每次状态改变的时候都会重新运行该方法
+async handlePlayListClick(id){
+    console.log(id);
+    const result = await ServiceClient.getInstance().getAsyncUserListDetail(id);
+    this.setState({
+      selectedPlayList:result
+    });
+    console.log(result);
+}
+
   render() {
-    const {playlists}=this.state;
+    const {playlists, selectedPlayList}=this.state;
     console.log(playlists);
     return(
     	<div className="nm-app">
@@ -41,10 +51,10 @@ async componentDidMount(){
           </header>
           <main>
             <aside>
-                <PlayList playlists={playlists}/>
+                <PlayList playlists={playlists} onClick={this.handlePlayListClick}/>
             </aside>
             <section>
-
+                <TrackTable selectedPlayList = {selectedPlayList}/>
             </section>
           </main>
           <footer>

@@ -13,6 +13,31 @@ export default class ServiceClient  {
     return ServiceClient._instance;
   }
 
+  async getAsyncUserListDetail(uid){
+    let res = null;
+    try {
+        res = await $.ajax({
+            url: "/api/playlist/detail",
+            type: "GET",
+            data: {
+                id:uid,
+            }
+        });
+    } catch (e) {
+        throw(e);
+    }
+
+    if (res.code === 200)
+    {
+        return res.result;
+    }
+    else
+    {
+        return res;
+    }
+
+  }
+
   async getAsyncUserPlayLists(uid)
     {
         let res = null;
