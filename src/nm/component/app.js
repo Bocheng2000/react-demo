@@ -27,21 +27,17 @@ async componentDidMount(){
     this.setState({
       playlists:result
     });
-    console.log(result);
   }
 
 async handlePlayListClick(id){
-    console.log(id);
     const result = await ServiceClient.getInstance().getAsyncUserListDetail(id);
     this.setState({
       selectedPlayList:result
     });
-    console.log(result);
 }
 
   render() {
     const {playlists, selectedPlayList}=this.state;
-    console.log(playlists);
     return(
     	<div className="nm-app">
           <header>

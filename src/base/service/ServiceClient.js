@@ -13,6 +13,7 @@ export default class ServiceClient  {
     return ServiceClient._instance;
   }
 
+//请求中间右边部分数据
   async getAsyncUserListDetail(uid){
     let res = null;
     try {
@@ -38,6 +39,7 @@ export default class ServiceClient  {
 
   }
 
+//请求中间左边部分数据
   async getAsyncUserPlayLists(uid)
     {
         let res = null;

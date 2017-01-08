@@ -45,20 +45,30 @@ export default class PlayList extends Component{
     // console.log("playlists",playlists);
     const selectedId = this.state.selectedId;
 
-    const liArr = playlists.map(item => {
-        let selectedClass = "";
-        selectedClass = item.id === selectedId ? "selected" : "";
-        return (
-          <li key={item.id} onClick={() => this.handleClick(item.id)} className = {selectedClass}>
-            <span className="iconfont icon-music"></span>
-            <span className="text">{item.name}</span>
-          </li>
-        )
-    });
+    // const liArr = playlists.map(item => {
+    //     let selectedClass = "";
+    //     selectedClass = item.id === selectedId ? "selected" : "";
+    //     return (
+    //       <li key={item.id} onClick={() => this.handleClick(item.id)} className = {selectedClass}>
+    //         <span className="iconfont icon-music"></span>
+    //         <span className="text">{item.name}</span>
+    //       </li>
+    //     )
+    // });
 
     return (
       <ul className="nm-play-list">
-        {liArr}
+        {/* {liArr} */}
+        {playlists.map(item => {
+            let selectedClass = "";
+            selectedClass = item.id === selectedId ? "selected" : "";
+            return (
+              <li key={item.id} onClick={() => this.handleClick(item.id)} className = {selectedClass}>
+                <span className="iconfont icon-music"></span>
+                <span className="text">{item.name}</span>
+              </li>
+            )
+        })}
       </ul>
     );
 
