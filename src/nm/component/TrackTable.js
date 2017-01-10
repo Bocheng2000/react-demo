@@ -34,13 +34,24 @@ export default class TrackTable extends Component {
             <table className="track-table">
                 <thead>
 
-                  <tr>
+                  {/* <tr>
                     <td><img className="nm-playlist-img" src={playListResult.coverImgUrl}/></td>
                     <td className="gedan">歌单:{playListResult["name"]}</td>
-                    <td className="personImg"><img src={playListResult.creator && playListResult.creator.avatarUrl}/></td>
+                    <td><img className="tuxiang" src={playListResult.creator && playListResult.creator.avatarUrl}/></td>
                     <td className="biaoqian">标签</td>
                     <td className="jianjie">简介</td>
-                  </tr>
+                  </tr> */}
+
+                  <div className="nm-right-container">
+                    <img className="nm-playlist-img" src={playListResult.coverImgUrl}/>
+                    <span className="gedan">歌单: {playListResult["name"]}</span>
+                    <img className="tuxiang" src={playListResult.creator && playListResult.creator.avatarUrl}/>
+                    <span className="biaoqian">标签</span>
+                    <span className="jianjie">简介</span>
+
+                  </div>
+
+
                   <tr>
                    <td>音乐标题</td>
                    <td>歌手</td>
